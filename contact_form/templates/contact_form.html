@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title></title>
+{% block extracss %}{% endblock %}
+</head>
+<body>
+<div class="animationss">
+        <p>Confección De Uniformes...</p>
+        <ul>
+        <li>Empresas</li>
+        <li>Instituciones</li>
+       <li>Industrial</li>
+       <li>Corporativo</li>
+       <li>Salud</li>
+       <li>Escolar</li>
+       <li>Gastronomia</li>
+       <li>Hoteleria</li>
+        </ul></div>
+    {% block contact_form %}{% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    {% block extrajs %}{% endblock %}
+</body>
+</html>
+{% endblock %}
