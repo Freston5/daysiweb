@@ -275,7 +275,7 @@ SOCIALACCOUNT_ADAPTER = 'daysiweb.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'blog.Post'
 #LOGIN_REDIRECT_URL = 'users:redirect'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'account_login'
