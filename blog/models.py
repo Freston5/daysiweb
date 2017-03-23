@@ -3,8 +3,8 @@ from django.utils import timezone
 
 
 class Post(models.Model):
-    author = models.ForeignKey('users.User')
-    #author = models.ForeignKey('auth.User')
+    #author = models.ForeignKey('users.User')
+    author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(
