@@ -72,7 +72,7 @@ LOCAL_APPS = [
     'photologue',
     'sortedm2m',
     'contact_form',
-    'users',
+    'daysiweb.users',
 
 ]
 
