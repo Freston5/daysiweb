@@ -67,7 +67,6 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'daysiweb.users.apps.UsersConfig',
-    'blog.apps.BlogConfig',
     # Your stuff: custom apps go here
     'blog',
     'photologue',
