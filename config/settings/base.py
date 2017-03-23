@@ -66,13 +66,13 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
+    'daysiweb.users.apps.UsersConfig',
     'blog',
-    #'daysiweb.users.apps.UsersConfig',
     # Your stuff: custom apps go here
     'photologue',
     'sortedm2m',
     'contact_form',
-    'daysiweb.users',
+    #'daysiweb.users',
 
 ]
 
@@ -348,7 +348,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 
 # Uncomment this for Amazon S3 file storage
 # from example_storages.settings_s3boto import *
-
+"""
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
@@ -361,4 +361,4 @@ DEBUG = False
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    pass"""
