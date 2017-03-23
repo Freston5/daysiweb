@@ -67,7 +67,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'daysiweb.users.apps.UsersConfig',
-    #'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig',
     # Your stuff: custom apps go here
     'blog',
     'photologue',
@@ -277,7 +277,7 @@ SOCIALACCOUNT_ADAPTER = 'daysiweb.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
+#LOGIN_REDIRECT_URL = 'users:redirect'
 #LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'account_login'
 
