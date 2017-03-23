@@ -55,7 +55,7 @@ if os.environ.get('USE_DOCKER') == 'yes':
     ip = socket.gethostbyname(socket.gethostname())
     INTERNAL_IPS += [ip[:-1] + '1']
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'daysifernandez.herokuapp.com']
 
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [

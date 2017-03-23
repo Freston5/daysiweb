@@ -66,13 +66,13 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
+    'blog',
     'daysiweb.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'blog',
     'photologue',
     'sortedm2m',
     'contact_form',
-    
+
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -348,16 +348,16 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 # Uncomment this for Amazon S3 file storage
 # from example_storages.settings_s3boto import *
 
-#import dj_database_url
-#DATABASES['default'] = dj_database_url.config()
-#
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#
-#ALLOWED_HOSTS = ['*']
-#
-#DEBUG = False
-#
-#try:
-#    from .local_settings import *
-#except ImportError:
-#    pass
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
