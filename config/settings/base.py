@@ -48,7 +48,6 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'werkzeug_debugger_runserver',
     'django.contrib.staticfiles',
 
     # Useful template tags:
