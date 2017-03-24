@@ -7,5 +7,5 @@
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs27\fsmilli13600 \cf2 \cb3 \expnd0\expndtw0\kerning0
-web: gunicorn daysiweb.wsgi\
+web: gunicorn config.wsgi\
 }
