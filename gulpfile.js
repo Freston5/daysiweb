@@ -1,4 +1,4 @@
-
+.listen(process.env.PORT || 5000)
 ////////////////////////////////
 		//Setup//
 ////////////////////////////////
@@ -102,3 +102,4 @@ gulp.task('watch', function() {
 gulp.task('default', function() {
     runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync', 'watch');
 });
+
