@@ -13,7 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 import sys
 import os
-import dj_database_url
+#import dj_database_url
 
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -104,7 +104,8 @@ MIGRATION_MODULES = {
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 #DEBUG = env.bool('DJANGO_DEBUG', False)
-
+#DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = False
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
@@ -135,8 +136,8 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///daysiweb'),
 }
-#DATABASES['default']['ATOMIC_REQUESTS'] = True
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+#DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # GENERAL CONFIGURATION
@@ -350,10 +351,10 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
 
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+#try:
+#    from .local_settings import *
+#except ImportError:
+#    pass
 # Uncomment this for Amazon S3 file storage
 # from example_storages.settings_s3boto import *
 """
