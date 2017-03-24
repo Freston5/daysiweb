@@ -13,6 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 import sys
 import os
+import dj_database_url
 
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -102,7 +103,7 @@ MIGRATION_MODULES = {
 # DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = env.bool('DJANGO_DEBUG', False)
+#DEBUG = env.bool('DJANGO_DEBUG', False)
 
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -134,9 +135,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres:///daysiweb'),
 }
-DATABASES['default']['ATOMIC_REQUESTS'] = True
+#DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES['default'] = dj_database_url.config()
 
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
 # Local time zone for this installation. Choices can be found here:
@@ -346,6 +348,12 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
     LOGGING['loggers']['']['handlers'] = ['null']
     LOGGING['loggers']['photologue']['handlers'] = ['null']
 
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 # Uncomment this for Amazon S3 file storage
 # from example_storages.settings_s3boto import *
 """

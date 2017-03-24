@@ -17,7 +17,8 @@ from .base import *  # noqa
 
 # DEBUG
 # ------------------------------------------------------------------------------
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+#DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = False
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 # SECRET CONFIGURATION
@@ -55,8 +56,8 @@ if os.environ.get('USE_DOCKER') == 'yes':
     ip = socket.gethostbyname(socket.gethostname())
     INTERNAL_IPS += [ip[:-1] + '1']
 
-ALLOWED_HOSTS = ['0.0.0.0', 'daysifernandez.herokuapp.com']
-
+#ALLOWED_HOSTS = ['0.0.0.0', 'daysifernandez.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
         'debug_toolbar.panels.redirects.RedirectsPanel',
@@ -74,3 +75,4 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
