@@ -31,7 +31,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='%,%2`oTuz!5Dp~-3}3{kb3r;N`oZ+9xOU
 
 EMAIL_PORT = 1025
 
-EMAIL_HOST = 'localhost'
+EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
                     default='django.core.mail.backends.console.EmailBackend')
 
@@ -56,8 +56,7 @@ if os.environ.get('USE_DOCKER') == 'yes':
     ip = socket.gethostbyname(socket.gethostname())
     INTERNAL_IPS += [ip[:-1] + '1']
 
-#ALLOWED_HOSTS = ['0.0.0.0', 'daysifernandez.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['daysifernandez.pythonanywhere.com']
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
         'debug_toolbar.panels.redirects.RedirectsPanel',

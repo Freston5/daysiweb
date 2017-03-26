@@ -1,9 +1,9 @@
 body {
-        
-        background:black url("/static/imagenes/daysifernandezhome.jpg") no-repeat left top;
+
+        background:black url("/static/imagenes//DaysiFernandezHome.jpg") no-repeat left top;
         padding-left: 15px;
 
-        
+
     }
 
 
@@ -78,7 +78,7 @@ h2 {
         font-size: 18pt;
         color: black;
         display: inline;
-        
+
 
 
 
@@ -105,8 +105,8 @@ h2 {
     height: 50px;
     width: 600px;
 
-  
-  
+
+
 }
 
 .nav-link {
@@ -120,7 +120,7 @@ ul {
    font-size: 0;
     list-style-type: disc;
     margin: 0;
-    padding: 0;  
+    padding: 0;
 }
 
 li {
@@ -150,22 +150,22 @@ li {
     }
 .post-form textarea {
         color: black;
-        font-family: 'Roboto', sans-serif; 
+        font-family: 'Roboto', sans-serif;
         width : 500px;
     }
 .post-form input {
         color: black;
-        font-family: 'Roboto', sans-serif; 
+        font-family: 'Roboto', sans-serif;
         width : 350px;
     }
 .input input{
         color: black;
-        font-family:'courier new', cursive; 
+        font-family:'courier new', cursive;
         width : 350px;
     }
 .input textarea {
         color: black;
-        font-family:'courier new', cursive; 
+        font-family:'courier new', cursive;
         width : 500px;
     }
 .input {
@@ -182,17 +182,17 @@ li {
         float: right;
         font-size: 8pt;
         margin-right: 20px;
-        
+
     }
 
 .post {
-        
+
         color: white;
         height: 200px;
         width: 800px;
-       
-       
-        
+
+
+
     }
 
 .post h1 a, .post h1 a:visited {
@@ -309,11 +309,11 @@ li {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }

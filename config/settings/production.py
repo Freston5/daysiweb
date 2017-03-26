@@ -6,13 +6,11 @@ Production Configurations
 - Use mailgun to send emails
 - Use Redis for cache
 
-
 """
 from __future__ import absolute_import, unicode_literals
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
-
 
 from .base import *  # noqa
 
@@ -55,7 +53,8 @@ X_FRAME_OPTIONS = 'DENY'
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['daysifernandez.com', ])
+#ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['daysifernandez.pythonanywhere.com', ])
+ALLOWED_HOSTS = ['daysifernandez.pythonanywhere.com']
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ['gunicorn', ]
@@ -99,15 +98,19 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
-                         default='daysiweb <noreply@daysifernandez.com>')
+                         default='PAGINAWEB <paginaweb@daysifernandez.com>')
+#DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
+#                        default='dfdtex@gmail.com')
 EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[daysiweb]')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
 # Anymail with Mailgun
 INSTALLED_APPS += ['anymail', ]
 ANYMAIL = {
-    'MAILGUN_API_KEY': env('DJANGO_MAILGUN_API_KEY'),
-    'MAILGUN_SENDER_DOMAIN': env('MAILGUN_SENDER_DOMAIN')
+    'MAILGUN_API_KEY': 'key-48650e6634bd972b621fae537f39cafa',
+    'MAILGUN_SENDER_DOMAIN': 'sandboxd3d8ace8e76c47dcb7a7507df5c56455.mailgun.org'
+    #'MAILGUN_API_KEY': env('key-48650e6634bd972b621fae537f39cafa'),
+    #'MAILGUN_SENDER_DOMAIN': env('sandboxd3d8ace8e76c47dcb7a7507df5c56455.mailgun.org')
 }
 EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
 
@@ -122,10 +125,24 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'daysifernandez$default',
+        'USER': 'daysifernandez',
+        'PASSWORD': 'Peluchin01',
+        'HOST': 'daysifernandez.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
 
+    }
+}
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-DATABASES['default'] = env.db('DATABASE_URL')
+#DATABASES['default'] = env.db('DATABASE_URL')
 
 # CACHING
 # ------------------------------------------------------------------------------

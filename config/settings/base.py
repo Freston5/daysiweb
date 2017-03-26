@@ -13,7 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import environ
 import sys
 import os
-#import dj_database_url
+
 
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -36,9 +36,7 @@ if READ_DOT_ENV_FILE:
     env.read_env(env_file)
     print('The .env file has been loaded. See base.py for more information')
 
-    ALLOWED_HOSTS = [
-    '0.0.0.0',            
-]
+ALLOWED_HOSTS = ['daysifernandez.pythonanywhere.com']
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -104,8 +102,8 @@ MIGRATION_MODULES = {
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 #DEBUG = env.bool('DJANGO_DEBUG', False)
-#DEBUG = env.bool('DJANGO_DEBUG', default=True)
-DEBUG = False
+DEBUG = env.bool('DJANGO_DEBUG', default=True)
+#DEBUG = False
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
@@ -118,7 +116,7 @@ CONTACT_FORM_RECIPIENTS = (
     ('daysi fernandez', 'dfdtex@gmail.com'),
 )
 # ------------------------------------------------------------------------------
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+#EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -134,12 +132,21 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///daysiweb'),
-}
-DATABASES['default']['ATOMIC_REQUESTS'] = True
-#DATABASES['default'] = dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'daysifernandez$default',
+        'USER': 'daysifernandez',
+        'PASSWORD': 'Peluchin01',
+        'HOST': 'daysifernandez.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    }
+}
+
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
 # Local time zone for this installation. Choices can be found here:
@@ -212,7 +219,7 @@ STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 #STATICFILES_DIRS = [
-#    str(APPS_DIR.path('static')), 
+#    str(APPS_DIR.path('static')),
 #]
 STATICFILES_DIRS = (
     os.path.join('static'),
@@ -280,8 +287,8 @@ SOCIALACCOUNT_ADAPTER = 'daysiweb.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
-#LOGIN_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
@@ -349,25 +356,5 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
     LOGGING['loggers']['']['handlers'] = ['null']
     LOGGING['loggers']['photologue']['handlers'] = ['null']
 
-
-
-#try:
-#    from .local_settings import *
-#except ImportError:
-#    pass
 # Uncomment this for Amazon S3 file storage
 # from example_storages.settings_s3boto import *
-"""
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass"""
